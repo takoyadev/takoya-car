@@ -1,0 +1,5 @@
+<h2>Liste des entretiens</h2>
+<p>Mis à jour le {{ lastUpdate | async | date: 'EEEE d MMMM y' | uppercase }}</p>
+<ul class="list-group">
+    <app-item-entretien  *ngFor="let item of list" [item]="item"></app-item-entretien>
+</ul>
