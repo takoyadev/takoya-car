@@ -17,12 +17,17 @@ import { ItemVoitureComponent } from './voiture/item/item-voiture.component';
 import { ProprietaireService } from './services/proprietaire.service';
 import { VoitureService } from './services/voiture.service';
 import { EntretienService } from './services/entretien.service';
+import { ListProprietaireComponent } from './proprietaire/list/list-proprietaire.component';
+import { DetailProprietaireComponent } from './proprietaire/detail/detail-proprietaire.component';
+import { ItemProprietaireComponent } from './proprietaire/item/item-proprietaire.component';
 
 const appRoutes: Routes = [
   { path: 'entretiens', canActivate: [AuthGuard], component: ListEntretienComponent },
   { path: 'entretiens/:id', canActivate: [AuthGuard], component: DetailEntretienComponent },
   { path: 'voitures', canActivate: [AuthGuard], component: ListVoitureComponent },
   { path: 'voitures/:id', canActivate: [AuthGuard], component: DetailVoitureComponent },
+  { path: 'proprietaires', canActivate: [AuthGuard], component: ListProprietaireComponent },
+  { path: 'proprietaires/:id', canActivate: [AuthGuard], component: DetailProprietaireComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', canActivate: [AuthGuard], component: ListEntretienComponent },
   { path: 'not-found', component: FourOhFourComponent },
@@ -38,6 +43,9 @@ const appRoutes: Routes = [
     ListVoitureComponent,
     DetailVoitureComponent,
     ItemVoitureComponent,
+    ListProprietaireComponent,
+    DetailProprietaireComponent,
+    ItemProprietaireComponent,
     AuthComponent,
     FourOhFourComponent
   ],

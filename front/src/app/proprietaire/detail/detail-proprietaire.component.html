@@ -1,0 +1,14 @@
+<h2>Proprietaire : {{ item.prenom }} {{item.nom}}</h2>
+<a routerLink="/proprietaires">Retour à la liste</a>
+<dl>
+  <dt>Adresse</dt>
+  <dd>
+    {{ item.adresse.ligne1 }}<br />
+    {{ item.adresse.ligne2 }}<br />
+    {{ item.adresse.codePostal }} {{ item.adresse.pays }}
+  </dd>
+  <dt>Téléphone</dt>
+  <dd>
+    {{ item.telephone }}
+  </dd>
+</dl>
