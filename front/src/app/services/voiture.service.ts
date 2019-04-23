@@ -17,7 +17,7 @@ export class VoitureService {
     {
         id: 2,
         marque: 'Citroen',
-        modele: 'C3',
+        modele: 'C4',
         proprietaire: this.proprietaireService.getById(2),
         status: 'ok',
         detail: 'RaS'
