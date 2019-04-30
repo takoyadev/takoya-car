@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './services/auth.service';
-import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { FourOhFourComponent } from './erreur/404/four-oh-four.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { DetailEntretienComponent } from './entretien/detail/detail-entretien.component';
 import { ListEntretienComponent } from './entretien/list/list-entretien.component';
