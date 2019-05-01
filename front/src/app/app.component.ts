@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,15 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  userLoggedIn() {
+    return sessionStorage.getItem("token") != null ? true : false;
+  }
+
+  onSignOut() {
+    sessionStorage.clear();
+    this.router.navigate(["/auth"]);
+  }
 
 }

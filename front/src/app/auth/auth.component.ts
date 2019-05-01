@@ -16,22 +16,21 @@ export class AuthComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.authStatus = this.authService.isAuth;
+    this.authStatus = false;
   }
 
   onSignIn() {
     this.authService.signIn(this.form.value.username, this.form.value.password).subscribe(
       token => {
         console.log("Auth reussie - TOKEN : " + token);
+        sessionStorage.setItem("token", token);
         this.authStatus = true;
         this.router.navigate(['entretiens']);
       },
-      error => console.log(error));
-  }
-
-  onSignOut() {
-    this.authService.signOut();
-    this.authStatus = this.authService.isAuth;
+      error => {
+        console.log(error);
+        alert("Erreur lors de la connexion")
+      });
   }
 
 }
