@@ -1,3 +1,27 @@
-<h2>Authentification</h2>
-<button class="btn btn-success" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>
-<button class="btn btn-danger" *ngIf="authStatus" (click)="onSignOut()">Se déconnecter</button>
+<div id="authScreen">
+
+  <h2>Authentification</h2>
+
+  <div id="login">
+    <h2>TAKOYA-CAR</h2>
+    <br/>
+
+    <form #f="ngForm">
+      <hr/>
+      <img src="../../assets/user.png" class="icon">
+      <input type="text" name="username" class="form-control" aria-label="Username" ngModel />
+      <hr/>
+      <img src="../../assets/lock.png" class="icon">
+      <input type="password" name="password" class="form-control" aria-label="Password" ngModel />
+      <hr/>
+    </form>
+
+    <br/>
+
+    <div class="text-center">
+      <button class="btn btn-success" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>
+      <button class="btn btn-danger" *ngIf="authStatus" (click)="onSignOut()">Se déconnecter</button>
+    </div>
+  </div>
+
+</div>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import {Router} from '@angular/router';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-auth',
@@ -9,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class AuthComponent implements OnInit {
 
+  @ViewChild('f') form: NgForm;
   authStatus: boolean;
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -18,12 +20,13 @@ export class AuthComponent implements OnInit {
   }
 
   onSignIn() {
-    this.authService.signIn().then(
-      () => {
+    this.authService.signIn(this.form.value.username, this.form.value.password).subscribe(
+      token => {
+        console.log(token);
         this.authStatus = this.authService.isAuth;
         this.router.navigate(['entretiens']);
-      }
-    );
+      },
+      error => console.log(error));
   }
 
   onSignOut() {
