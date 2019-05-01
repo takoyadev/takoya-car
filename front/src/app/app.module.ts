@@ -21,6 +21,7 @@ import { ListProprietaireComponent } from './proprietaire/list/list-proprietaire
 import { DetailProprietaireComponent } from './proprietaire/detail/detail-proprietaire.component';
 import { ItemProprietaireComponent } from './proprietaire/item/item-proprietaire.component';
 import { CarEasterEggComponent } from './easter-egg/car/car-easter-egg.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   { path: 'entretiens', canActivate: [AuthGuard], component: ListEntretienComponent },
@@ -55,7 +56,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [
     ProprietaireService,
