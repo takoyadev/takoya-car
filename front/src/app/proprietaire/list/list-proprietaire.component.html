@@ -1,5 +1,6 @@
 <h2>Liste des entretiens</h2>
-<p>Mis à jour le {{ lastUpdate | async | date: 'dd/MM/y' }} à {{ lastUpdate | async | date: 'hh:mm' | uppercase }}</p>
+<p>Mis à jour le {{ lastUpdate | async | date: 'dd/MM/y' }} à {{
+	lastUpdate | async | date: 'hh:mm' | uppercase }}</p>
 <ul class="list-group">
-    <app-item-proprietaire  *ngFor="let item of list" [item]="item"></app-item-proprietaire>
+	<app-item-proprietaire *ngFor="let item of list" [item]="item"></app-item-proprietaire>
 </ul>

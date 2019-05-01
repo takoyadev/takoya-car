@@ -1,10 +1,13 @@
-<li [ngClass]="{'list-group-item': true,
+<li
+	[ngClass]="{'list-group-item': true,
                 'list-group-item-success': item.status === 'ok',
                 'list-group-item-danger': item.status === 'ko'}"
-                [routerLink]="[item.id]" routerLinkActive="router-link-active" >
-  <h4>{{ item.marque }} {{ item.modele }}</h4>
-  <p>Proprietaire : <a [routerLink]="['/proprietaires/' + item.proprietaire.id]">
-    {{ item.proprietaire.prenom }} {{ item.proprietaire.nom }}
-  </a></p>
-  <p>Statut : {{ getStatus() }}</p>
+	[routerLink]="[item.id]" routerLinkActive="router-link-active">
+	<h4>{{ item.marque }} {{ item.modele }}</h4>
+	<p>
+		Proprietaire : <a
+			[routerLink]="['/proprietaires/' + item.proprietaire.id]"> {{
+			item.proprietaire.prenom }} {{ item.proprietaire.nom }} </a>
+	</p>
+	<p>Statut : {{ getStatus() }}</p>
 </li>

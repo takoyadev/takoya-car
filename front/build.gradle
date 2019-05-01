@@ -1,0 +1,19 @@
+plugins {
+  id 'java'
+  id "com.moowork.node" version "1.2.0"
+}
+
+group = 'fr.takoyadev'
+version = '0.0.1-SNAPSHOT'
+
+node {
+  version = '10.15.0'
+  npmVersion = '6.4.1'
+  download = true
+}
+
+jar.dependsOn 'npm_run_build'
+
+jar {
+  from 'dist/front-angular' into 'static'
+}
