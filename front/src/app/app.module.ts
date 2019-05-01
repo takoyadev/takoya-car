@@ -20,6 +20,7 @@ import { EntretienService } from './services/entretien.service';
 import { ListProprietaireComponent } from './proprietaire/list/list-proprietaire.component';
 import { DetailProprietaireComponent } from './proprietaire/detail/detail-proprietaire.component';
 import { ItemProprietaireComponent } from './proprietaire/item/item-proprietaire.component';
+import { CarEasterEggComponent } from './easter-egg/car/car-easter-egg.component';
 
 const appRoutes: Routes = [
   { path: 'entretiens', canActivate: [AuthGuard], component: ListEntretienComponent },
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: '', canActivate: [AuthGuard], component: ListEntretienComponent },
   { path: 'not-found', component: FourOhFourComponent },
+  { path: 'car', component: CarEasterEggComponent },
   { path: '**', redirectTo: 'not-found' }
 ];
 
@@ -47,7 +49,8 @@ const appRoutes: Routes = [
     DetailProprietaireComponent,
     ItemProprietaireComponent,
     AuthComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    CarEasterEggComponent
   ],
   imports: [
     BrowserModule,
