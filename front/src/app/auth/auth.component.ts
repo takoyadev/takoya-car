@@ -22,7 +22,7 @@ export class AuthComponent implements OnInit {
   onSignIn() {
     this.authService.signIn(this.form.value.username, this.form.value.password).subscribe(
       token => {
-        console.log(token);
+        console.log("Auth reussie - TOKEN : " + token);
         this.authStatus = true;
         this.router.navigate(['entretiens']);
       },
