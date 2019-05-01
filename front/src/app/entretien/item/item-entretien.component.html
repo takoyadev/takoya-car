@@ -1,17 +1,17 @@
-<li [ngClass]="{'list-group-item': true,
+<li
+	[ngClass]="{'list-group-item': true,
                 'list-group-item-success': item.status === 'ok',
                 'list-group-item-danger': item.status === 'ko'}"
-                [routerLink]="[item.id]" routerLinkActive="router-link-active" >
-  <h4>{{ item.libelle }}</h4>
-  <p>
-      Voiture : <a [routerLink]="['/voitures/' + item.voiture.id]">
-        {{ item.voiture.marque }} {{ item.voiture.modele }}
-      </a> 
-      (de <a [routerLink]="['/proprietaires/' + item.voiture.proprietaire.id]">
-        {{ item.voiture.proprietaire.prenom }} {{ item.voiture.proprietaire.nom }}
-      </a>)
-  </p>
-  <p>Date : {{ item.date | date: 'dd/MM/y' | uppercase }}</p>
-  <p>Statut : {{ item.status }}</p>
-  <p>Description: {{ item.detail }}</p>
+	[routerLink]="[item.id]" routerLinkActive="router-link-active">
+	<h4>{{ item.libelle }}</h4>
+	<p>
+		Voiture : <a [routerLink]="['/voitures/' + item.voiture.id]"> {{
+			item.voiture.marque }} {{ item.voiture.modele }} </a> (de <a
+			[routerLink]="['/proprietaires/' + item.voiture.proprietaire.id]">
+			{{ item.voiture.proprietaire.prenom }} {{
+			item.voiture.proprietaire.nom }} </a>)
+	</p>
+	<p>Date : {{ item.date | date: 'dd/MM/y' | uppercase }}</p>
+	<p>Statut : {{ item.status }}</p>
+	<p>Description: {{ item.detail }}</p>
 </li>
