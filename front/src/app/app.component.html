@@ -5,8 +5,8 @@
         <li routerLinkActive="active"><a routerLink="entretiens">Entretiens</a></li>
         <li routerLinkActive="active"><a routerLink="voitures">Voitures</a></li>
         <li routerLinkActive="active"><a routerLink="proprietaires">Proprietaires</a></li>
-        <li><button class="btn btn-danger" *ngIf="userLoggedIn()" (click)="onSignOut()">Se déconnecter</button></li>
       </ul>
+      <button class="btn btn-danger btn-navbar" *ngIf="userLoggedIn()" (click)="onSignOut()">Se deconnecter</button>
     </div>
   </div>
 </nav>
