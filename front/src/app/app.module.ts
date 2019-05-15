@@ -9,6 +9,7 @@ import { AuthService } from './services/auth.service';
 import { FourOhFourComponent } from './erreur/404/four-oh-four.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { DetailEntretienComponent } from './entretien/detail/detail-entretien.component';
+import { AddEntretienComponent } from './entretien/add/add-entretien.component';
 import { ListEntretienComponent } from './entretien/list/list-entretien.component';
 import { ItemEntretienComponent } from './entretien/item/item-entretien.component';
 import { ListVoitureComponent } from './voiture/list/list-voiture.component';
@@ -25,6 +26,7 @@ import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   { path: 'entretiens', canActivate: [AuthGuard], component: ListEntretienComponent },
+  { path: 'entretiens/add', canActivate: [AuthGuard], component: AddEntretienComponent },
   { path: 'entretiens/:id', canActivate: [AuthGuard], component: DetailEntretienComponent },
   { path: 'voitures', canActivate: [AuthGuard], component: ListVoitureComponent },
   { path: 'voitures/:id', canActivate: [AuthGuard], component: DetailVoitureComponent },
@@ -42,6 +44,7 @@ const appRoutes: Routes = [
     AppComponent,
     ListEntretienComponent,
     DetailEntretienComponent,
+    AddEntretienComponent,
     ItemEntretienComponent,
     ListVoitureComponent,
     DetailVoitureComponent,
