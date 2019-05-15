@@ -21,7 +21,8 @@
 						"index": "src/index.html",
 						"main": "src/main.ts",
 						"polyfills": "src/polyfills.ts",
-						"tsConfig": "src/tsconfig.app.json",
+                        "tsConfig": "src/tsconfig.app.json",
+                        "baseHref": "/car/",
 						"assets": [
 							"src/favicon.ico",
 							"src/assets"

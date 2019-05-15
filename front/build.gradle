@@ -1,6 +1,7 @@
 plugins {
   id 'java'
-  id "com.moowork.node" version "1.2.0"
+  id 'com.moowork.node' version "1.2.0"
+  id 'war'
 }
 
 group = 'fr.takoyadev'
@@ -12,8 +13,14 @@ node {
   download = true
 }
 
-jar.dependsOn 'npm_run_build'
+task buildAngular(type: NpmTask, dependsOn: 'npmInstall') {
+    group = 'build'
+    description = 'Compile car project in dist directory'
+    args = ['run', 'build']
+}
 
-jar {
-  from 'dist/front-angular' into 'static'
+war {
+  dependsOn 'buildAngular'
+  from 'dist/front-angular'
+  archiveName = 'car.war'
 }
