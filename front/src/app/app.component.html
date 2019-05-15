@@ -8,17 +8,14 @@
             <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="entretiens">Entretiens</a></li>
             <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="voitures">Voitures</a></li>
             <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="proprietaires">Proprietaires</a></li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Utilisateurs</a>
-            </li>
+            <li class="nav-item"><a class="nav-link disabled" href="#">Utilisateurs</a></li>
         </ul>
-        <button class="btn btn-outline-danger my-2 my-sm-0" *ngIf="userLoggedIn()" (click)="onSignOut()">Se deconnecter</button>
+        <button class="btn btn-outline-danger my-2 my-sm-0" *ngIf="userLoggedIn()" (click)="onSignOut()">
+            Se déconnecter
+        </button>
     </div>
 </nav>
+
 <div class="container">
-	<!-- <div class="row"> -->
-		<!-- <div class="col-xs-12"> -->
-			<router-outlet></router-outlet>
-		<!-- </div> -->
-	<!-- </div> -->
+    <router-outlet></router-outlet>
 </div>
