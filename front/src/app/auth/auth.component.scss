@@ -3,26 +3,22 @@
   width: 100%;
   border: 1px solid;
   background-image: url("/assets/Ferrari-599_59.jpg");
-  background-size: 100% 100%;
+  background-size: cover;
 }
 
 #login {
-  width: 40%;
   background-color: rgba(255,255,255,0.2);
   margin: auto;
-  margin-top: 35px;
-  padding: 50px;
+  margin-top: 25px;
+  padding: 2vw;
+  width: 60%;
 }
 
 #login h2 {
   color: white;
   text-shadow: 2px 4px 4px red;
   text-align: center;
-}
-
-#login hr {
-  width: 65%;
-  margin: auto;
+  font-size: 3vw;
 }
 
 #login input {
@@ -35,7 +31,6 @@
 }
 
 .icon {
-  float: left;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }

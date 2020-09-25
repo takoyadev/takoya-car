@@ -4,16 +4,21 @@
     <br/>
 
     <form #f="ngForm" (ngSubmit)="onSignIn()">
-      <hr/>
-      <img src="assets/user.png" class="icon">
-      <input type="text" name="username" class="form-control" aria-label="Username" ngModel />
-      <hr/>
-      <img src="assets/lock.png" class="icon">
-      <input type="password" name="password" class="form-control" aria-label="Password" ngModel />
-      <hr/>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr class="d-flex">
+              <td><img src="assets/user.png" class="icon"></td>
+              <td class="w-100 px-0"><input type="text" name="username" class="form-control w-100" aria-label="Username" ngModel /></td>
+            </tr>
+            <tr class="d-flex">
+              <td><img src="assets/lock.png" class="icon"></td>
+              <td class="w-100 px-0"><input type="password" name="password" class="form-control w-100" aria-label="Password" ngModel /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </form>
-
-    <br/>
 
     <div class="text-center">
       <button class="btn btn-outline-success" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>
