@@ -5,13 +5,13 @@
 	[routerLink]="[item.id]" routerLinkActive="router-link-active">
 	<h4>{{ item.libelle }}</h4>
 	<p>
-		Voiture : <a [routerLink]="['/voitures/' + item.voiture.id]"> {{
-			item.voiture.marque }} {{ item.voiture.modele }} </a> (de <a
-			[routerLink]="['/proprietaires/' + item.voiture.proprietaire.id]">
-			{{ item.voiture.proprietaire.prenom }} {{
-			item.voiture.proprietaire.nom }} </a>)
+		Voiture : <a [routerLink]="['/voitures/' + item.car.id]"> {{
+			item.car.marque }} {{ item.car.modele }} </a> (de <a
+			[routerLink]="['/proprietaires/' + item.car.owner.id]">
+			{{ item.car.owner.prenom }} {{
+			item.car.owner.nom }} </a>)
 	</p>
 	<p>Date : {{ item.date | date: 'dd/MM/y' | uppercase }}</p>
 	<p>Statut : {{ item.status }}</p>
-	<p>Description: {{ item.detail }}</p>
+	<p>Description: {{ item.description }}</p>
 </li>

@@ -14,6 +14,7 @@ export class ItemEntretienComponent implements OnInit {
   constructor(private entretienService: EntretienService) { }
 
   ngOnInit() {
+    console.log(this.item);
   }
 
   getStatus() {

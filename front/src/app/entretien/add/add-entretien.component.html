@@ -1,10 +1,18 @@
 <h2>Ajout d'un entretien</h2>
-<form>
+<form #f="ngForm" (ngSubmit)="saveEntretien()">
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0"><label for="voiture">Libelle</label></legend>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="libelle" name="libelle" required ngModel />
+        </div>
+      </div>
+    </fieldset>
     <fieldset class="form-group">
         <div class="row">
             <legend class="col-form-label col-sm-2 pt-0"><label for="voiture">Voiture</label></legend>
             <div class="col-sm-10">
-                <select class="custom-select" id="voiture" required>
+                <select class="custom-select" id="voiture" name="car" required ngModel>
                     <option selected>Choisissez la voiture entretenue</option>
                     <option value="1">Seat Leon III (de Cyril DEFAYE)</option>
                     <option value="2">Citroen C4 (de Christophe EIMARD)</option>
@@ -16,7 +24,7 @@
         <div class="row">
             <legend class="col-form-label col-sm-2 pt-0"><label for="date">Date</label></legend>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="date" placeholder="Date">
+                <input type="text" class="form-control" id="date" name="date" placeholder="Date" ngModel>
                 <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
                     <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
@@ -30,7 +38,7 @@
         <div class="row">
             <legend class="col-form-label col-sm-2 pt-0"><label for="description">Description</label></legend>
             <div class="col-sm-10">
-                <textarea type="text" class="form-control" id="description" placeholder="Description de l'entretien"></textarea>
+                <textarea type="text" class="form-control" id="description" name="description" placeholder="Description de l'entretien" ngModel></textarea>
             </div>
         </div>
     </fieldset>
@@ -39,13 +47,13 @@
             <legend class="col-form-label col-sm-2 pt-0"><label>Statut</label></legend>
             <div class="col-sm-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                    <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="OK" checked ngModel>
                     <label class="form-check-label" for="gridRadios1">
                         <span class="badge badge-success">Voiture OK</span>
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                    <input class="form-check-input" type="radio" name="status" id="gridRadios2" value="KO" ngModel>
                     <label class="form-check-label" for="gridRadios2">
                         <span class="badge badge-danger">Voiture KO</span>
                     </label>

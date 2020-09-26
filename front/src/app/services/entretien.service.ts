@@ -1,69 +1,50 @@
 import { Entretien } from '../entretien/entretien';
 import { VoitureService } from './voiture.service';
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class EntretienService {
 
-  public list: Entretien[] = [
-    {
-      id: 1,
-      libelle: 'Plaquettes Cyril',
-      date: new Date(),
-      voiture: this.voitureService.getById(1),
-      status: 'ko',
-      detail: 'Commande des mauvaises plaquettes'
-    },
-    {
-      id: 2,
-      libelle: 'Session globale',
-      date: new Date(),
-      voiture: this.voitureService.getById(2),
-      status: 'ok',
-      detail: 'RaS'
-    },
-    {
-      id: 3,
-      libelle: 'Bougies Cyril',
-      date: new Date(),
-      voiture: this.voitureService.getById(1),
-      status: 'ok',
-      detail: 'RaS'
-    }
-  ];
+  endpoint = 'http://localhost:8080/entretiens/';
 
-  constructor(private voitureService: VoitureService) {}
+  signIn(username: string, password: string) {
+    return this.httpClient.post(this.endpoint + "signin", {username: username, password: password}, {responseType: "text"});
+  }
+
+
+  constructor(private httpClient: HttpClient, private voitureService: VoitureService) {}
 
   switchOnAll() {
-    for (const entretien of this.list) {
-      entretien.status = 'ok';
-    }
+    // for (const entretien of this.list) {
+    //   entretien.status = 'ok';
+    // }
   }
 
   switchOffAll() {
-    for (const entretien of this.list) {
-      entretien.status = 'ko';
-    }
+    // for (const entretien of this.list) {
+    //   entretien.status = 'ko';
+    // }
   }
 
   switchOnOne(i: number) {
-    this.list[i].status = 'ok';
+    // this.list[i].status = 'ok';
   }
 
   switchOffOne(i: number) {
-    this.list[i].status = 'ko';
+    // this.list[i].status = 'ko';
   }
 
-  getAppareilById(id: number) {
-    return this.list.find(
-      (s) => {
-        return s.id === id;
-      }
-    );
+  getEntretienById(id: number) {
+      return this.httpClient.get<Entretien>(this.endpoint + id);
   }
 
   getList() {
-      return this.list;
+      return this.httpClient.get<Entretien[]>(this.endpoint);
+  }
+
+  saveEntretien(entretien: Entretien) {
+      return this.httpClient.post(this.endpoint + "add", entretien);
   }
 
 }

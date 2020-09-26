@@ -23,7 +23,7 @@ export class ListEntretienComponent implements OnInit {
   constructor(private service: EntretienService) { }
 
   ngOnInit() {
-    this.list = this.service.getList();
+    this.service.getList().subscribe(data => this.list = data, error => console.log(error));
   }
 
   onAllumer() {
