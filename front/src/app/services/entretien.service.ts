@@ -1,7 +1,7 @@
 import { Entretien } from '../entretien/entretien';
 import { VoitureService } from './voiture.service';
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class EntretienService {
@@ -11,7 +11,6 @@ export class EntretienService {
   signIn(username: string, password: string) {
     return this.httpClient.post(this.endpoint + "signin", {username: username, password: password}, {responseType: "text"});
   }
-
 
   constructor(private httpClient: HttpClient, private voitureService: VoitureService) {}
 

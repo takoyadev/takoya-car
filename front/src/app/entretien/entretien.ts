@@ -4,10 +4,9 @@ export class Entretien {
 
     public id: number;
     public libelle: string;
-    public date: string;
+    public date: Date;
     public description: string;
-    public voiture: Voiture;
-    public car_id: number;
+    public car: Voiture;
     public status: string;
     public detail: string;
 

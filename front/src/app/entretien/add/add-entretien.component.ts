@@ -1,8 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { EntretienService } from 'src/app/services/entretien.service';
 import {NgForm} from "@angular/forms";
 import {Entretien} from "../entretien";
+import {Voiture} from "../../voiture/voiture";
 
 @Component({
   selector: 'app-add-entretien',
@@ -11,12 +12,11 @@ import {Entretien} from "../entretien";
 })
 export class AddEntretienComponent implements OnInit {
 
-  name = 'Appareil';
-  status = 'Statut';
+  errorMsg = '';
 
   @ViewChild('f') form: NgForm;
 
-  constructor(private entretienService: EntretienService, private route: ActivatedRoute) { }
+  constructor(private entretienService: EntretienService, private router: Router) { }
 
   ngOnInit() {
       /* empty, for now */
@@ -25,15 +25,22 @@ export class AddEntretienComponent implements OnInit {
   saveEntretien() {
     let entretien = new Entretien();
     entretien.libelle = this.form.value.libelle;
-    entretien.car_id = this.form.value.car;
+
+    let voiture = new Voiture();
+    voiture.id = this.form.value.car;
+
+    entretien.car = voiture;
 
     let dateStr = this.form.value.date.split("/");
 
-    entretien.date = dateStr[2] + "-" + dateStr[1] + "-" + dateStr[0];
+    entretien.date = new Date(dateStr[2], dateStr[1] - 1, dateStr[0]);
     entretien.description = this.form.value.description;
     entretien.status = this.form.value.status;
 
-    this.entretienService.saveEntretien(entretien).subscribe(() => console.log("success"), error => console.log(error));
+    this.entretienService.saveEntretien(entretien).subscribe(() => this.router.navigate(['/..']), error => {
+      console.log(error);
+      this.errorMsg = 'Remplis correctement ton formulaire, fumier !!!';
+    });
   }
 
 }

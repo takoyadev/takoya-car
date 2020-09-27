@@ -22,7 +22,8 @@ import { ListProprietaireComponent } from './proprietaire/list/list-proprietaire
 import { DetailProprietaireComponent } from './proprietaire/detail/detail-proprietaire.component';
 import { ItemProprietaireComponent } from './proprietaire/item/item-proprietaire.component';
 import { CarEasterEggComponent } from './easter-egg/car/car-easter-egg.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor} from "@angular/common/http";
+import {AuthorizationInterceptor} from "./interceptor/http.interceptor";
 
 const appRoutes: Routes = [
   { path: 'entretiens', canActivate: [AuthGuard], component: ListEntretienComponent },
@@ -67,7 +68,8 @@ const appRoutes: Routes = [
     VoitureService,
     EntretienService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
