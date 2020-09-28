@@ -2,15 +2,12 @@ import { Entretien } from '../entretien/entretien';
 import { VoitureService } from './voiture.service';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class EntretienService {
 
-  endpoint = 'http://localhost:8080/entretiens/';
-
-  signIn(username: string, password: string) {
-    return this.httpClient.post(this.endpoint + "signin", {username: username, password: password}, {responseType: "text"});
-  }
+  endpoint = environment.apiUrl + 'entretiens/';
 
   constructor(private httpClient: HttpClient, private voitureService: VoitureService) {}
 

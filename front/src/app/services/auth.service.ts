@@ -1,10 +1,11 @@
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class AuthService {
 
-  endpoint = 'http://localhost:8080/users/';
+  endpoint = environment.apiUrl + 'users/';
 
   constructor(private httpClient: HttpClient) {}
 

@@ -4,6 +4,7 @@ import { EntretienService } from 'src/app/services/entretien.service';
 import {NgForm} from "@angular/forms";
 import {Entretien} from "../entretien";
 import {Voiture} from "../../voiture/voiture";
+import {VoitureService} from "../../services/voiture.service";
 
 @Component({
   selector: 'app-add-entretien',
@@ -13,13 +14,14 @@ import {Voiture} from "../../voiture/voiture";
 export class AddEntretienComponent implements OnInit {
 
   errorMsg = '';
+  lstVoitures: Voiture[];
 
   @ViewChild('f') form: NgForm;
 
-  constructor(private entretienService: EntretienService, private router: Router) { }
+  constructor(private entretienService: EntretienService, private voitureService: VoitureService, private router: Router) { }
 
   ngOnInit() {
-      /* empty, for now */
+    this.voitureService.getList().subscribe(data => this.lstVoitures = data);
   }
 
   saveEntretien() {

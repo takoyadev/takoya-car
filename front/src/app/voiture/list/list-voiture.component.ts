@@ -23,7 +23,7 @@ export class ListVoitureComponent implements OnInit {
   constructor(private service: VoitureService) { }
 
   ngOnInit() {
-    this.list = this.service.getList();
+    this.service.getList().subscribe(data => this.list = data, error => console.log(error));
   }
 
   onAllumer() {

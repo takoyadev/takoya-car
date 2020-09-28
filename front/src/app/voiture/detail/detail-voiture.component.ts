@@ -16,7 +16,7 @@ export class DetailVoitureComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
-    this.item = this.service.getById(+id);
+    this.service.getById(+id).subscribe(data => this.item = data, error => console.log(error));
   }
 
 }

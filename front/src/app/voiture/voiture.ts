@@ -5,8 +5,8 @@ export class Voiture {
     public id: number;
     public marque: string;
     public modele: string;
-    public proprietaire: Proprietaire;
-    // TODO à ajouter côté back
+    public owner: Proprietaire;
+    // TODO Ã  ajouter cÃ´tÃ© back
     public status: string;
     public detail: string;
     

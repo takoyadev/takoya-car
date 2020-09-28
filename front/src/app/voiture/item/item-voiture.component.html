@@ -6,8 +6,8 @@
 	<h4>{{ item.marque }} {{ item.modele }}</h4>
 	<p>
 		Proprietaire : <a
-			[routerLink]="['/proprietaires/' + item.proprietaire.id]"> {{
-			item.proprietaire.prenom }} {{ item.proprietaire.nom }} </a>
+			[routerLink]="['/proprietaires/' + item.owner.id]"> {{
+			item.owner.prenom }} {{ item.owner.nom }} </a>
 	</p>
 	<p>Statut : {{ getStatus() }}</p>
 </li>

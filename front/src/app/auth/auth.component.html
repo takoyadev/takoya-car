@@ -23,6 +23,9 @@
     <div class="text-center">
       <button class="btn btn-outline-success" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>
     </div>
+
+    <p class="alert-danger text-center mt-4">{{errorMsg}}</p>
+
   </div>
 
 </div>

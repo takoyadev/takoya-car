@@ -13,6 +13,8 @@ export class AuthComponent implements OnInit {
   @ViewChild('f') form: NgForm;
   authStatus: boolean;
 
+  errorMsg = '';
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
@@ -29,7 +31,7 @@ export class AuthComponent implements OnInit {
       },
       error => {
         console.log(error);
-        alert("Erreur lors de la connexion")
+        this.errorMsg = "Erreur lors de la connexion";
       });
   }
 
