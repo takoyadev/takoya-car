@@ -1,5 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -25,12 +25,14 @@ import { CarEasterEggComponent } from './easter-egg/car/car-easter-egg.component
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthorizationInterceptor} from "./interceptor/http.interceptor";
 import {AngularMyDatePickerModule} from "angular-mydatepicker";
+import {AddVoitureComponent} from './voiture/add/add-voiture.component';
 
 const appRoutes: Routes = [
   { path: 'entretiens', canActivate: [AuthGuard], component: ListEntretienComponent },
   { path: 'entretiens/add', canActivate: [AuthGuard], component: AddEntretienComponent },
   { path: 'entretiens/:id', canActivate: [AuthGuard], component: DetailEntretienComponent },
   { path: 'voitures', canActivate: [AuthGuard], component: ListVoitureComponent },
+  { path: 'voitures/add', canActivate: [AuthGuard], component: AddVoitureComponent },
   { path: 'voitures/:id', canActivate: [AuthGuard], component: DetailVoitureComponent },
   { path: 'proprietaires', canActivate: [AuthGuard], component: ListProprietaireComponent },
   { path: 'proprietaires/:id', canActivate: [AuthGuard], component: DetailProprietaireComponent },
@@ -49,6 +51,7 @@ const appRoutes: Routes = [
     AddEntretienComponent,
     ItemEntretienComponent,
     ListVoitureComponent,
+    AddVoitureComponent,
     DetailVoitureComponent,
     ItemVoitureComponent,
     ListProprietaireComponent,

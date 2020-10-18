@@ -1,0 +1,34 @@
+<h2>Ajout d'une voiture</h2>
+<form #f="ngForm" (ngSubmit)="saveVoiture()">
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0"><label for="marque">Marque</label></legend>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="marque" name="marque" required ngModel />
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0"><label for="modele">Modèle</label></legend>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="modele" name="modele" required ngModel />
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0"><label for="proprietaire">Propriétaire</label></legend>
+            <div class="col-sm-10">
+                <select class="custom-select" id="proprietaire" name="proprietaire" required ngModel>
+                    <option selected>Choisissez le propriétaire</option>
+                    <option *ngFor="let item of proprietaires" value="{{item.id}}">{{item.prenom}} {{item.nom}}</option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+    <p class="alert-danger mt-4">{{errorMsg}}</p>
+</form>
+
+<a routerLink="/entretiens">Retour à la liste</a>

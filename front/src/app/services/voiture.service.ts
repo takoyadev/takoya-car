@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class VoitureService {
 
-  endpoint = environment.apiUrl + 'cars/';
+  endpoint = environment.apiUrl + 'car/';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -18,8 +18,12 @@ export class VoitureService {
     return this.httpClient.get<Voiture[]>(this.endpoint);
   }
 
-  saveVoiture(voiture: Voiture) {
+  save(voiture: Voiture) {
     return this.httpClient.post(this.endpoint, voiture);
+  }
+
+  delete(id: number) {
+    this.httpClient.delete(this.endpoint + id);
   }
 
 }

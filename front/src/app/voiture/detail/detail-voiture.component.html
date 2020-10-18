@@ -1,3 +1,10 @@
 <h2>Voiture : {{ item.marque }} {{item.modele}}</h2>
 <a routerLink="/voitures">Retour à la liste</a>
-<p>Statut : {{ item.status }}</p>
+<ul>
+  <li>Propriétaire : <a
+    [routerLink]="['/proprietaires/' + item.owner.id]">
+    {{ item.owner.prenom }} {{
+    item.owner.nom }} </a></li>
+  <li>Marque : {{ item.marque }}</li>
+  <li>Modèle : {{ item.modele }}</li>
+</ul>
