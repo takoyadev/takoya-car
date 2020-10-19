@@ -22,8 +22,9 @@ import { ListProprietaireComponent } from './proprietaire/list/list-proprietaire
 import { DetailProprietaireComponent } from './proprietaire/detail/detail-proprietaire.component';
 import { ItemProprietaireComponent } from './proprietaire/item/item-proprietaire.component';
 import { CarEasterEggComponent } from './easter-egg/car/car-easter-egg.component';
-import {HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthorizationInterceptor} from "./interceptor/http.interceptor";
+import {AngularMyDatePickerModule} from "angular-mydatepicker";
 
 const appRoutes: Routes = [
   { path: 'entretiens', canActivate: [AuthGuard], component: ListEntretienComponent },
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    AngularMyDatePickerModule
   ],
   providers: [
     ProprietaireService,
