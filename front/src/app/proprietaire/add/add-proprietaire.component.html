@@ -1,0 +1,23 @@
+<h2>Ajout d'un propriétaire</h2>
+<form #f="ngForm" (ngSubmit)="saveProprietaire()">
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0"><label for="nom">Nom</label></legend>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="nom" name="nom" required ngModel />
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0"><label for="prenom">Prénom</label></legend>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="prenom" name="prenom" required ngModel />
+        </div>
+      </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+    <p class="alert-danger mt-4">{{errorMsg}}</p>
+</form>
+
+<a routerLink="/entretiens">Retour à la liste</a>

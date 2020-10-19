@@ -26,6 +26,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthorizationInterceptor} from "./interceptor/http.interceptor";
 import {AngularMyDatePickerModule} from "angular-mydatepicker";
 import {AddVoitureComponent} from './voiture/add/add-voiture.component';
+import {AddProprietaireComponent} from './proprietaire/add/add-proprietaire.component';
 
 const appRoutes: Routes = [
   { path: 'entretiens', canActivate: [AuthGuard], component: ListEntretienComponent },
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
   { path: 'voitures/add', canActivate: [AuthGuard], component: AddVoitureComponent },
   { path: 'voitures/:id', canActivate: [AuthGuard], component: DetailVoitureComponent },
   { path: 'proprietaires', canActivate: [AuthGuard], component: ListProprietaireComponent },
+  { path: 'proprietaires/add', canActivate: [AuthGuard], component: AddProprietaireComponent },
   { path: 'proprietaires/:id', canActivate: [AuthGuard], component: DetailProprietaireComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', canActivate: [AuthGuard], component: ListEntretienComponent },
@@ -56,6 +58,7 @@ const appRoutes: Routes = [
     ItemVoitureComponent,
     ListProprietaireComponent,
     DetailProprietaireComponent,
+    AddProprietaireComponent,
     ItemProprietaireComponent,
     AuthComponent,
     FourOhFourComponent,
