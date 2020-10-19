@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import { EntretienService } from 'src/app/services/entretien.service';
 import {NgForm} from "@angular/forms";
 import {Entretien} from "../entretien";
@@ -33,9 +33,7 @@ export class AddEntretienComponent implements OnInit {
 
     entretien.car = voiture;
 
-    let dateStr = this.form.value.date.split("/");
-
-    entretien.date = new Date(dateStr[2], dateStr[1] - 1, dateStr[0]);
+    entretien.date = this.form.value.date.singleDate.jsDate;
     entretien.description = this.form.value.description;
     entretien.status = this.form.value.status;
 

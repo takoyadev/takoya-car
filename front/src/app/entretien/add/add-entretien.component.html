@@ -23,13 +23,8 @@
         <div class="row">
             <legend class="col-form-label col-sm-2 pt-0"><label for="date">Date</label></legend>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="date" name="date" placeholder="Date" ngModel>
-                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
-                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                    </div>
-                </div>
+                <input angular-mydatepicker type="text" class="form-control" id="date" name="date" placeholder="Date" ngModel #dp="angular-mydatepicker"
+                       locale="fr" (click)="dp.toggleCalendar()" autocomplete="off">
             </div>
         </div>
     </fieldset>
