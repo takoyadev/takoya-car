@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import { EntretienService } from 'src/app/services/entretien.service';
-import {Entretien} from "../entretien";
+import {EntretienService} from 'src/app/services/entretien.service';
+import {Entretien} from '../entretien';
 
 @Component({
   selector: 'app-detail-entretien',
@@ -10,17 +10,13 @@ import {Entretien} from "../entretien";
 })
 export class DetailEntretienComponent implements OnInit {
 
-  name;
-  status;
+  item: Entretien;
 
-  constructor(private entretienService: EntretienService, private route: ActivatedRoute) { }
+  constructor(private service: EntretienService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
-    this.entretienService.getEntretienById(id).subscribe(data => {
-      this.name = data.libelle;
-      this.status = data.status;
-    }, error => console.log(error));
+    this.service.getById(+id).subscribe(data => this.item = data, error => console.log(error));
   }
 
 }

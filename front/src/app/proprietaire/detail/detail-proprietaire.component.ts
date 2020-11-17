@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import { ProprietaireService } from 'src/app/services/proprietaire.service';
-import { Proprietaire } from '../proprietaire';
+import {ProprietaireService} from 'src/app/services/proprietaire.service';
+import {Proprietaire} from '../proprietaire';
 
 @Component({
   selector: 'app-detail-proprietaire',
@@ -16,7 +16,7 @@ export class DetailProprietaireComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
-    this.item = this.service.getById(+id);
+    this.service.getById(+id).subscribe(data => this.item = data, error => console.log(error));
   }
 
 }

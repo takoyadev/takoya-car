@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Proprietaire } from '../proprietaire';
-import { ProprietaireService } from 'src/app/services/proprietaire.service';
+import {Component, OnInit} from '@angular/core';
+import {Proprietaire} from '../proprietaire';
+import {ProprietaireService} from 'src/app/services/proprietaire.service';
 
 @Component({
   selector: 'app-list-proprietaire',
@@ -23,7 +23,7 @@ export class ListProprietaireComponent implements OnInit {
   constructor(private service: ProprietaireService) { }
 
   ngOnInit() {
-    this.list = this.service.getList();
+    this.service.getList().subscribe(data => this.list = data, error => console.log(error));
   }
 
 }

@@ -25,10 +25,10 @@ export class AddEntretienComponent implements OnInit {
   }
 
   saveEntretien() {
-    let entretien = new Entretien();
+    const entretien = new Entretien();
     entretien.libelle = this.form.value.libelle;
 
-    let voiture = new Voiture();
+    const voiture = new Voiture();
     voiture.id = this.form.value.car;
 
     entretien.car = voiture;
