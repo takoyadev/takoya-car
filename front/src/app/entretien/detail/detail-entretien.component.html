@@ -1,3 +1,32 @@
-<h2>Entretien : {{ name }}</h2>
-<a routerLink="/entretiens">Retour à la liste</a>
-<p>Statut : {{ status }}</p>
+<h2>Entretien : {{ item.libelle }}</h2>
+<ul>
+  <li><a routerLink="/entretiens">Retour à la liste</a></li>
+  <li><a routerLink="/entretiens/edit/{{ item.id }}">Modifier</a></li>
+  <li><a routerLink="/entretiens/delete/{{ item.id }}">Supprimer</a></li>
+</ul>
+<table>
+  <tr>
+    <th>Voiture</th><td><a
+    [routerLink]="['/voitures/' + item.car.id]">
+    {{ item.car.marque }} {{
+    item.car.modele }} </a></td>
+  </tr>
+  <tr>
+    <th>Propriétaire</th><td><a
+    [routerLink]="['/proprietaires/' + item.car.owner.id]">
+    {{ item.car.owner.prenom }} {{
+    item.car.owner.nom }} </a></td>
+  </tr>
+  <tr>
+    <th>Date</th><td>{{ item.date }}</td>
+  </tr>
+  <tr>
+    <th>Description</th><td>{{ item.description }}</td>
+  </tr>
+  <tr>
+    <th>Détail</th><td>{{ item.detail }}</td>
+  </tr>
+  <tr>
+    <th>Statut</th><td>{{ item.status }}</td>
+  </tr>
+</table>

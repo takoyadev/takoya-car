@@ -1,4 +1,10 @@
-<h2>Ajout d'une voiture</h2>
+<div *ngIf="this.addModeActivate; then addH2Block else editH2Block"></div>
+<ng-template #addH2Block>
+  <h2>Ajout d'une voiture</h2>
+</ng-template>
+<ng-template #editH2Block>
+  <h2>Modification d'une voiture</h2>
+</ng-template>
 <form #f="ngForm" (ngSubmit)="saveVoiture()">
     <fieldset class="form-group">
       <div class="row">
@@ -27,8 +33,14 @@
             </div>
         </div>
     </fieldset>
-    <button type="submit" class="btn btn-primary">Ajouter</button>
+    <div *ngIf="this.addModeActivate; then addSubmitButton else editSubmitButton"></div>
+    <ng-template #addSubmitButton>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </ng-template>
+    <ng-template #editSubmitButton>
+      <button type="submit" class="btn btn-primary">Modifier</button>
+    </ng-template>
     <p class="alert-danger mt-4">{{errorMsg}}</p>
 </form>
 
-<a routerLink="/entretiens">Retour à la liste</a>
+<a routerLink="/voitures">Retour à la liste</a>

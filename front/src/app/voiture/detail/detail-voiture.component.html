@@ -1,10 +1,20 @@
 <h2>Voiture : {{ item.marque }} {{item.modele}}</h2>
-<a routerLink="/voitures">Retour à la liste</a>
 <ul>
-  <li>Propriétaire : <a
+  <li><a routerLink="/voitures">Retour à la liste</a></li>
+  <li><a routerLink="/voitures/edit/{{ item.id }}">Modifier</a></li>
+  <li><a routerLink="/voitures/delete/{{ item.id }}">Supprimer</a></li>
+</ul>
+<table>
+  <tr>
+    <th>Propriétaire</th><td><a
     [routerLink]="['/proprietaires/' + item.owner.id]">
     {{ item.owner.prenom }} {{
-    item.owner.nom }} </a></li>
-  <li>Marque : {{ item.marque }}</li>
-  <li>Modèle : {{ item.modele }}</li>
-</ul>
+    item.owner.nom }} </a></td>
+  </tr>
+  <tr>
+    <th>Marque</th><td>{{ item.marque }}</td>
+  </tr>
+  <tr>
+    <th>Modèle</th><td>{{ item.modele }}</td>
+  </tr>
+</table>
